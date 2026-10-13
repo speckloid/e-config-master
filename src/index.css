@@ -1,0 +1,17 @@
+@import "tailwindcss";
+
+@layer utilities {
+  .grid-cols-18 {
+    grid-template-columns: repeat(18, minmax(0, 1fr));
+  }
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background-color: #faf8ee;
+  color: #111827;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}

@@ -1,0 +1,6 @@
+{
+  "name": "Electronic Structure Challenge",
+  "description": "An interactive, classroom-ready PhET-style chemistry game exploring atomic electronic structures, electron shells, subshells, noble-gas shorthand, and orbital diagrams across the periodic table.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
