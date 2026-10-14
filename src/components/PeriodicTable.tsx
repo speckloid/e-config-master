@@ -99,7 +99,7 @@ export const PeriodicTable: React.FC<PeriodicTableProps> = ({
                   {/* Optional atomic number indicator */}
                   {showAtomicNumbers && (
                     <span
-                      className={`text-[9px] sm:text-[10px] leading-none absolute top-0.5 left-1 font-mono ${
+                      className={`text-[9px] sm:text-[10px] leading-none absolute top-0.5 left-1 font-math font-medium ${
                         isSelected ? 'text-gray-900 font-bold' : isCellEnabled ? 'text-gray-500' : 'text-gray-300'
                       }`}
                     >
@@ -109,7 +109,7 @@ export const PeriodicTable: React.FC<PeriodicTableProps> = ({
 
                   {/* Main Chemical Symbol */}
                   <span
-                    className={`text-xs sm:text-sm md:text-base font-extrabold ${
+                    className={`text-xs sm:text-sm md:text-base font-extrabold font-math tracking-tight ${
                       showAtomicNumbers ? 'mt-1 sm:mt-1.5' : ''
                     }`}
                   >

@@ -1,5 +1,6 @@
 import React from 'react';
 import { ElementData, IonData } from '../types/chemistry';
+import { renderFormattedSubshells } from '../utils/chemistryFormat';
 
 interface ConfigurationDisplayProps {
   element: ElementData;
@@ -23,14 +24,14 @@ export const ConfigurationDisplay: React.FC<ConfigurationDisplayProps> = ({
         <div className="flex flex-col items-center justify-center gap-4 my-auto">
           {/* Main Principal Shell Configuration */}
           <div className="bg-white border-2 border-gray-800 rounded-2xl px-10 py-8 shadow-sm text-center">
-            <span className="text-xs uppercase tracking-wider font-bold text-gray-500 block mb-2">
+            <span className="text-xs uppercase tracking-wider font-bold text-gray-500 block mb-3">
               Principal Shell Configuration
             </span>
-            <div className="font-mono text-4xl sm:text-5xl font-black text-gray-900 tracking-wider flex items-center justify-center">
+            <div className="font-math text-4xl sm:text-5xl font-extrabold text-gray-900 tracking-wider flex items-center justify-center">
               {isIon && ionData ? (
                 <div className="flex items-start">
                   <span>[{shellConfig.join(', ')}]</span>
-                  <sup className="text-rose-600 text-2xl sm:text-3xl font-extrabold font-mono ml-1.5 -mt-2">
+                  <sup className="text-rose-600 text-2xl sm:text-3xl font-extrabold font-math ml-1.5 -mt-2">
                     {ionData.chargeDisplay}
                   </sup>
                 </div>
@@ -48,19 +49,21 @@ export const ConfigurationDisplay: React.FC<ConfigurationDisplayProps> = ({
       return (
         <div className="flex flex-col items-center justify-center gap-4 my-auto">
           <div className="bg-white border-2 border-gray-800 rounded-2xl px-8 py-7 shadow-sm text-center max-w-xl">
-            <span className="text-xs uppercase tracking-wider font-bold text-gray-500 block mb-2">
+            <span className="text-xs uppercase tracking-wider font-bold text-gray-500 block mb-3">
               Complete Subshell Configuration
             </span>
-            <div className="font-mono text-xl sm:text-2xl font-extrabold text-blue-900 tracking-normal break-words leading-relaxed flex items-center justify-center">
+            <div className="font-math text-xl sm:text-2xl font-extrabold text-blue-900 tracking-normal break-words leading-relaxed flex items-center justify-center">
               {isIon && ionData ? (
                 <div className="flex items-start">
-                  <span>[{notation}]</span>
-                  <sup className="text-rose-600 text-lg sm:text-xl font-extrabold font-mono ml-1.5 -mt-1">
+                  <span className="text-gray-400 font-light mr-1.5 select-none">[</span>
+                  {renderFormattedSubshells(notation)}
+                  <span className="text-gray-400 font-light ml-1.5 select-none">]</span>
+                  <sup className="text-rose-600 text-lg sm:text-xl font-extrabold font-math ml-1 -mt-1">
                     {ionData.chargeDisplay}
                   </sup>
                 </div>
               ) : (
-                <span>{notation}</span>
+                renderFormattedSubshells(notation)
               )}
             </div>
           </div>
@@ -73,19 +76,21 @@ export const ConfigurationDisplay: React.FC<ConfigurationDisplayProps> = ({
     return (
       <div className="flex flex-col items-center justify-center gap-4 my-auto">
         <div className="bg-white border-2 border-gray-800 rounded-2xl px-10 py-8 shadow-sm text-center max-w-lg">
-          <span className="text-xs uppercase tracking-wider font-bold text-gray-500 block mb-2">
+          <span className="text-xs uppercase tracking-wider font-bold text-gray-500 block mb-3">
             Noble-Gas Shorthand Configuration
           </span>
-          <div className="font-mono text-2xl sm:text-3xl font-extrabold text-indigo-950 tracking-normal flex items-center justify-center">
+          <div className="font-math text-2xl sm:text-3xl font-extrabold text-indigo-950 tracking-normal flex items-center justify-center">
             {isIon && ionData ? (
               <div className="flex items-start">
-                <span>[{notation}]</span>
-                <sup className="text-rose-600 text-xl sm:text-2xl font-extrabold font-mono ml-1.5 -mt-1">
+                <span className="text-gray-400 font-light mr-1.5 select-none">[</span>
+                {renderFormattedSubshells(notation)}
+                <span className="text-gray-400 font-light ml-1.5 select-none">]</span>
+                <sup className="text-rose-600 text-xl sm:text-2xl font-extrabold font-math ml-1.5 -mt-1">
                   {ionData.chargeDisplay}
                 </sup>
               </div>
             ) : (
-              <span>{notation}</span>
+              renderFormattedSubshells(notation)
             )}
           </div>
         </div>
@@ -95,10 +100,10 @@ export const ConfigurationDisplay: React.FC<ConfigurationDisplayProps> = ({
 
   return (
     <div className="w-full h-full flex flex-col justify-between p-3 select-none">
-      {/* Top Header: Only particle count, no redundant atom/ion badge */}
+      {/* Top Header: Only particle count */}
       <div className="flex items-center justify-start mb-2">
         <div className="bg-[#fff9d9] border border-gray-800 rounded px-3 py-1 text-xs font-medium text-gray-800">
-          Electrons: <strong className="text-blue-900 font-mono text-sm">{totalElectrons}</strong>
+          Electrons: <strong className="text-blue-900 font-math text-sm">{totalElectrons}</strong>
         </div>
       </div>
 

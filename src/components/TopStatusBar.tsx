@@ -64,13 +64,13 @@ export const TopStatusBar: React.FC<TopStatusBarProps> = ({
 
           <div className="flex items-baseline gap-1.5 font-bold text-lg tracking-wide">
             <span className="text-blue-200 text-sm uppercase tracking-wider font-semibold">Score:</span>
-            <span className="text-amber-300 font-extrabold">{activePlayer.score}</span>
+            <span className="text-amber-300 font-extrabold font-math">{activePlayer.score}</span>
           </div>
 
           {activePlayer.streak > 1 && (
             <div className="flex items-center gap-1 bg-amber-500/20 text-amber-300 px-2.5 py-0.5 rounded-full text-sm font-semibold border border-amber-400/30">
               <Flame className="w-4 h-4 text-amber-400 fill-amber-400 animate-pulse" />
-              <span>Streak: {activePlayer.streak}</span>
+              <span>Streak: <span className="font-math font-bold">{activePlayer.streak}</span></span>
             </div>
           )}
         </div>
@@ -95,7 +95,7 @@ export const TopStatusBar: React.FC<TopStatusBarProps> = ({
             <div className="flex items-center gap-1.5 bg-black/20 px-2.5 py-1 rounded-md border border-white/10">
               <Clock className="w-4 h-4 text-blue-200" />
               <span
-                className={`font-mono font-bold text-sm ${
+                className={`font-math font-bold text-sm ${
                   timeLeft <= 5 ? 'text-rose-400 animate-pulse' : 'text-white'
                 }`}
               >

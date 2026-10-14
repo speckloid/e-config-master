@@ -4,6 +4,19 @@
   .grid-cols-18 {
     grid-template-columns: repeat(18, minmax(0, 1fr));
   }
+  .font-math {
+    font-family: 'Fira Sans', system-ui, -apple-system, BlinkMacSystemFont, sans-serif !important;
+  }
+}
+
+/* Base application typography uses Nunito */
+*, *::before, *::after, html, body, button, input, select, textarea {
+  font-family: 'Nunito', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* Mathematical text, electron configurations, charges, chemical formulas, and numbers use Fira Sans */
+.font-math, .font-mono, sup, sub, .element-symbol, .atomic-num {
+  font-family: 'Fira Sans', system-ui, -apple-system, BlinkMacSystemFont, sans-serif !important;
 }
 
 html, body {
@@ -11,7 +24,6 @@ html, body {
   padding: 0;
   background-color: #faf8ee;
   color: #111827;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

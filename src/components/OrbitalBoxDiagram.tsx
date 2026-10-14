@@ -104,10 +104,10 @@ export const OrbitalBoxDiagram: React.FC<OrbitalBoxDiagramProps> = ({
 
                 {/* Subshell Label */}
                 <div className="mt-1 text-center">
-                  <span className="font-bold text-gray-900 font-mono text-sm tracking-tight">
+                  <span className="font-bold text-gray-900 font-math text-sm tracking-tight">
                     {subshell.label}
                   </span>
-                  <span className="text-xs text-gray-600 font-semibold align-top ml-0.5">
+                  <span className="text-xs text-gray-600 font-semibold align-top ml-0.5 font-math">
                     {subshell.electrons}
                   </span>
                 </div>
@@ -119,17 +119,10 @@ export const OrbitalBoxDiagram: React.FC<OrbitalBoxDiagramProps> = ({
         {/* Charge indicator placed directly underneath the orbital structure */}
         {isIon && ionData && (
           <div className="flex items-center justify-center gap-2 mt-3">
-            <span className="text-xs font-bold text-gray-700">Ionic Charge:</span>
-            <span className="font-mono text-sm font-black text-rose-600 bg-rose-50 border border-rose-300 px-2 py-0.5 rounded shadow-2xs">
-              <sup>{ionData.chargeDisplay}</sup>
+            <span className="text-xs font-bold text-gray-700 uppercase tracking-wider">Ionic Charge:</span>
+            <span className="font-math text-base font-extrabold text-rose-600 bg-rose-50 border border-rose-300 px-2.5 py-0.5 rounded shadow-2xs">
+              {ionData.chargeDisplay}
             </span>
-          </div>
-        )}
-
-        {/* Eric Scerri transition metal educational note */}
-        {isIon && ionData?.scerriNote && (
-          <div className="mt-2 text-center text-xs text-indigo-900 bg-indigo-50 border border-indigo-200 rounded px-3 py-1 font-medium max-w-md mx-auto">
-            💡 <em>Electronic structure note:</em> {ionData.scerriNote}
           </div>
         )}
       </div>
